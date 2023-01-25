@@ -4,16 +4,18 @@ This repo contains an example of a full-stack application with an express backen
 
 It uses vite as the module bundler, and includes examples of CRUD functionality for a todo list application.
 
-## How to Use
+## Customizing the Template
 
-1. Fork the repo.
-1. Create your database: `$ createdb YOUR_DB`
-1. Change the db connection in `./server/server.js` to connect to your database.
+1. Create new repo using this as a template.
+1. Pull that repo down.
+1. Update the `npm:seed` command with the name of your database.
 1. Update `./server/migration.sql` to create the schema for your application.
-1. Run your migrations: `$ psql -f server/migration.sql YOUR_DB`
 
-## How to Run
+## Development Setup
 
-To run your application, you can use `npm run dev`. It will start your backend server as well as the vite server which hosts your frontend assets.
-
-If you want to run your backend and frontend separately, run `npm run dev:client` in one terminal tab and `npm run dev:server` in another.
+1. Install dependencies: `npm install`
+1. Create your database: `$ createdb YOUR_DB`
+1. Run your migrations: `$ npm:seed`
+1. Copy `server/.env.template` -> `server/.env`
+1. Add your info in `server/.env`
+1. Run the app: `$ npm run dev`
