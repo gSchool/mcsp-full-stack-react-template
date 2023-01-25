@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 import postgres from "postgres";
+// import dotenv from "dotenv";
 
-const sql = postgres({
-  // Replace with your database creds
-  database: "tasktime",
-});
+// dotenv.config();
+
+const sql = postgres(process.env.DATABASE_URL);
 
 const app = express();
 
