@@ -2,7 +2,7 @@
 
 This repo contains an example of a full-stack application with an express backend and a React frontend.
 
-It uses vite as the module bundler, and includes examples of CRUD functionality for a todo list application.
+It uses vite as the module bundler and dotenv for configuration.
 
 ## Customizing the Template
 
