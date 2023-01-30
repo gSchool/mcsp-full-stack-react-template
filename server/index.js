@@ -1,9 +1,13 @@
 import express from "express";
 import cors from "cors";
 import postgres from "postgres";
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 
-// dotenv.config();
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
+
+console.log("PORT value", PORT);
 
 const sql = postgres(process.env.DATABASE_URL);
 
@@ -18,6 +22,6 @@ app.get("/api/tasks", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("listening on port 3000");
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });

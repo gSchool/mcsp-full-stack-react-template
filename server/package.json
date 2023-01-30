@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node -r dotenv/config index.js",
-    "dev": "nodemon -r dotenv/config index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

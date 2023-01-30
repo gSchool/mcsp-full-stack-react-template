@@ -1,5 +1,11 @@
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../server" });
+
 export default {
   server: {
-    open: true,
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
   },
 };
