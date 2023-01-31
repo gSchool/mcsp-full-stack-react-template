@@ -7,8 +7,6 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-console.log("PORT value", PORT);
-
 const sql = postgres(process.env.DATABASE_URL);
 
 const app = express();
