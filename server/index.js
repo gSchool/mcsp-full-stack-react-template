@@ -2,7 +2,7 @@ import express from "express";
 import postgres from "postgres";
 import dotenv from "dotenv";
 
-dotenv.config({ path: new URL("../.env", import.meta.url).pathname });
+dotenv.config({ path: "../.env" });
 
 const PORT = process.env.PORT;
 const sql = postgres(process.env.DATABASE_URL);
