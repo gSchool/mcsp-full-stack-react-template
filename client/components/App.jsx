@@ -4,9 +4,7 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch("/api/tasks", {
-      mode: "cors",
-    })
+    fetch("/api/tasks")
       .then((res) => res.json())
       .then((tasks) => {
         setTasks(tasks);
