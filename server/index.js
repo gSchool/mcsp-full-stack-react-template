@@ -3,9 +3,9 @@ import cors from "cors";
 import postgres from "postgres";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({ path: new URL("../.env", import.meta.url).pathname });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 const sql = postgres(process.env.DATABASE_URL);
 
