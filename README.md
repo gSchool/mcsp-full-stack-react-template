@@ -4,6 +4,8 @@ This repo contains an example of a full-stack application with an express backen
 
 It uses vite as the module bundler and dotenv for configuration. It's organized as a mono-repo using [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) which allows us to have our client and server in one repo.
 
+> **Note**: When you run `npm install` at the root, it will install all dependencies listed in `package.json`, `server/package.json`, and `client/package.json`.
+
 ## Customizing the Template
 
 1. Create new repo using this one as a template.
