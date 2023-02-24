@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15-alpine
+    env_file: .env
+    ports:
+      - 5432:5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./server/migration.sql:/docker-entrypoint-initdb.d/migration.sql
+
+  api:
+    build: ./server
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database/${POSTGRES_DB}
+      PORT: ${API_PORT}
+    depends_on:
+      - database
+    ports:
+      - ${API_PORT}:${API_PORT}
+    volumes:
+      - .:/code
+    command: npm run dev:server
+
+  app:
+    build: ./client
+    environment:
+      API_URL: http://api:${API_PORT}
+      PORT: ${CLIENT_PORT}
+    depends_on:
+      - api
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    volumes:
+      - .:/code
+    command: npm run dev:client 
+
+volumes:
+  pg-data:
