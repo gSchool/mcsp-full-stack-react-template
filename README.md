@@ -23,6 +23,10 @@ It uses vite as the module bundler and dotenv for configuration. It's organized 
 
 ## Scripts
 
+## License
+
+MIT - Free use, brother!
+
 **Root**
 
 - `npm run dev` - Runs the API server and hosts your frontend assets.
