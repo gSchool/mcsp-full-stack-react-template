@@ -1,17 +1,23 @@
 import express from "express";
-import postgres from "postgres";
+import pg from "pg";
 import dotenv from "dotenv";
 
 dotenv.config({ path: "../.env" });
 
-const PORT = process.env.PORT;
-const sql = postgres(process.env.DATABASE_URL);
+const { PORT, DATABASE_URL } = process.env;
+
+const client = new pg.Client({
+  connectionString: DATABASE_URL,
+});
+
+await client.connect();
+
 const app = express();
 
 app.use(express.json());
 
 app.get("/api/tasks", (req, res) => {
-  sql`SELECT * FROM tasks`.then((rows) => {
+  client.query("SELECT * FROM tasks").then((rows) => {
     res.send(rows);
   });
 });
